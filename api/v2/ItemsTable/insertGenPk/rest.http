@@ -1,0 +1,11 @@
+POST http://localhost:9011/api/v2/ItemsTable/insertGenPk
+Content-Type: application/json
+
+{
+  "ItemName": "11",
+  "Qty": "",
+  "OrigRate": "",
+  "OrigAmount": "",
+  "RateInc": "",
+  "Amount": ""
+}
