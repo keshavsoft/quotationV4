@@ -117,7 +117,7 @@
         },
         {
             "columnName": "OrigRate",
-            "title": "OrigRate",
+            "title": "List Price",
             "field": "OrigRate",
             "cellConfig": {
                 "width": "75px",
@@ -154,9 +154,9 @@
             "dataListFillName": "OrigRate"
         },
         {
-            "columnName": "OrigAmount",
-            "title": "OrigAmount",
-            "field": "OrigAmount",
+            "columnName": "DisPer",
+            "title": "DisPer",
+            "field": "DisPer",
             "cellConfig": {
                 "width": "75px",
                 "rightAlign": true,
@@ -168,7 +168,7 @@
                     }
                 },
                 "tableFooter": {
-                    "showTotal": true
+                    "showTotal": false
                 },
                 "showThousandsSeperator": true
             },
@@ -184,11 +184,11 @@
                 "footerConfig": {
                     "allowOnChange": true,
                     "onKeyDown": true,
-                    "onKeyDownType": "OrigAmount",
+                    "onKeyDownType": "DisPer",
                     "type": "number",
                     "enterAsTab": true,
-                    "evalformula": "OrigAmount / Qty",
-                    "evalToControl": "OrigRate"
+                    "evalformula": "OrigRate * ( 100 - DisPer )/ 100",
+                    "evalToControl": "RateInc"
                 }
             },
             "isVisible": true,
