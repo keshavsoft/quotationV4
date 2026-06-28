@@ -18,5 +18,6 @@ setupRoutes(app);
 const { port } = startServer(app);
 
 if (process.env.OPEN_BROWSER === "true") {
-    exec(`start http://localhost:${port}/v3/index.html`);
+    // exec(`start http://localhost:${port}/v3/index.html`);
+    exec(`start http://localhost:${port}/index.html`);
 };
