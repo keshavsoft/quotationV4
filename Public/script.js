@@ -14,9 +14,9 @@ function loadScriptAsModuleCommon(src) {
 async function ensureKSComponents() {
     async function tryTable() {
         try {
-            const fromPromise = await loadScriptAsModuleCommon("https://keshavsoft.github.io/ks-web-comp-table/Public/v2.7/KSTableComponents.js");
+            const fromPromise = await loadScriptAsModuleCommon("https://keshavsoft.github.io/ks-web-comp-table/Public/v2.8/KSComponents.js");
 
-            console.log("KSTableComponents loaded from git : ks-web-comp-table-2.7");
+            console.log("KSComponents loaded from git : ks-web-comp-table-2.8");
 
             if (fromPromise) return true;
         } catch { return false };
@@ -96,9 +96,9 @@ async function ensureKSHeader() {
 
     async function tryGitHub() {
         try {
-            const fromPromise = await loadScriptAsModuleCommon("https://keshavsoft.github.io/tailwind-header-dom/Public/v5.10/ksheader.js");
+            const fromPromise = await loadScriptAsModuleCommon("https://keshavsoft.github.io/tailwind-header-dom/public/v12/ksheader.js");
 
-            console.log("KSHeader loaded from git : tailwind-header-dom-5.10");
+            console.log("KSHeader loaded from git : tailwind-header-dom-12");
 
             if (fromPromise) return true;
         } catch { return false };
@@ -152,9 +152,9 @@ async function ensureKSTableComp() {
 
     async function tryGitHub() {
         try {
-            const fromPromise = await loadScriptAsModule("https://keshavsoft.github.io/tailwind-table-dom-comp/Public/v12/kstablecomp.js");
+            const fromPromise = await loadScriptAsModule("https://keshavsoft.github.io/tailwind-table-dom-comp/Public/v13/kstablecomp.js");
 
-            console.log("KSTableComp loaded from git : tailwind-table-dom-comp-12");
+            console.log("KSTableComp loaded from git : tailwind-table-dom-comp-13");
 
             if (fromPromise) return true;
         } catch { return false };
