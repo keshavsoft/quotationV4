@@ -1,9 +1,10 @@
 export const buildButton = ({
-    inText = "Save"
+    inText = "Save",
+    inClass = "w-full mt-2 px-4 py-1 bg-green-500 text-white rounded"
 } = {}) => {
     const button = document.createElement("button");
 
-    button.className = "w-full mt-2 px-4 py-1 bg-green-500 text-white rounded";
+    button.className = inClass;
     button.textContent = inText;
 
     return button;

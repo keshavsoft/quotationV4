@@ -1,33 +1,31 @@
-import { buildButton } from "./BuildButton/buildButton.js";
+import renderButton from "./render/start.js";
 
 class KsButton extends HTMLElement {
+    init(options) {
+        this.options = options;
+        this.render();
+    }
+
     connectedCallback() {
-        if (this.dataset.rendered === "true") return;
+        if (!this.dataset.rendered) {
+            this.render();
+        }
+    }
 
+    render() {
         this.dataset.rendered = "true";
+        this.innerHTML = "";
 
-        const button = buildButton({
-            inText: this.getAttribute("text") || "Save"
+        renderButton({
+            element: this,
+            options: this.options
         });
-
-        button.addEventListener("click", event => {
-            event.preventDefault();
-
-            const form = this.closest("form");
-
-            const data = Object.fromEntries(
-                [...form.querySelectorAll("input")]
-                    .map(input => [input.name, input.value])
-            );
-
-            // console.log(data);
-            this.onClick?.(data);
-        });
-
-        this.appendChild(button);
     }
 }
 
-customElements.define("ks-button", KsButton);
+if (!customElements.get("ks-button")) {
+    customElements.define("ks-button", KsButton);
+}
 
 export default KsButton;
+export { KsButton };
