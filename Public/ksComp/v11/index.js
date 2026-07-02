@@ -7,7 +7,7 @@ import "./inputForTableRow/index.js";
 import "./tableBodyOptionsCell/index.js";
 
 import "./vertical/button/v4/index.js";
-import "./vertical/htmlForm/v5/index.js";
+import "./vertical/htmlForm/v6/index.js";
 
 console.log("KS Components v11 loaded to DOM");
 
