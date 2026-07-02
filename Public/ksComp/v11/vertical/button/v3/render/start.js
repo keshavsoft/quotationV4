@@ -12,7 +12,7 @@ const renderButton = ({ element, options = {} }) => {
         inClass: className
     });
 
-    attachClickEvent({ button, element });
+    attachClickEvent(button, element?.localName);
 
     element.appendChild(button);
 };
