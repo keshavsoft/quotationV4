@@ -82,23 +82,7 @@ class KsHtmlForm extends HTMLElement {
                     inType: "type" in inCol ? inCol.type : ""
                 });
             }
-        } else {
-            switch (col) {
-                case "LedgerName":
-                    row = this.createDataListInput(inCol, inDefaultRow, inDataStore);
-                    break;
-                case "InvoiceDate":
-                    row = document.createElement("ks-input");
-                    row.setAttribute("label", "InvoiceDate");
-                    row.setAttribute("name", "InvoiceDate");
-                    row.setAttribute("type", "date");
-                    this.inputs[col] = row;
-                    break;
-                default:
-                    row = this.createDefaultInput({ inCol, inDefaultRow, inDataStore });
-                    break;
-            }
-        }
+        };
 
         return row;
     }
