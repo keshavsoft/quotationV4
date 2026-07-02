@@ -62,15 +62,15 @@
             "href": "../Print/v2/index.html"
         },
         {
-            "text": "Print",
-            "id": "PrintHtmlId",
+            "text": "Quotation",
+            "id": "QuotationHtmlId",
             "icon": [],
             "uiClasses": {
                 "aClass": "",
                 "svgDivClass": "size-10"
             },
             "svgName": "printer",
-            "href": "javascript:window.print()"
+            "href1": "javascript:window.print()"
         }
     ]
 }

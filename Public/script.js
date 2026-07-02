@@ -24,14 +24,7 @@ async function ensureKSComponents() {
         return false;
     };
 
-    // tryMenu().then();
-    // tryNav().then();
     tryTable().then();
-
-    // console.log("aaaaaaaaaaaaaaaaaaaaaaaaa----------");
-
-    // tryVertical().then();
-    // tryTableFoot().then();
 };
 
 async function ensureTailwind() {
