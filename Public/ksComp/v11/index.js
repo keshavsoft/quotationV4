@@ -6,9 +6,9 @@ import "./inputForVertical/index.js";
 import "./inputForTableRow/index.js";
 import "./tableBodyOptionsCell/index.js";
 
-import "./vertical/button/v2/index.js";
+import "./vertical/button/v3/index.js";
 import "./vertical/htmlForm/v4/index.js";
 
-console.log("KS Components v9 loaded to DOM");
+console.log("KS Components v11 loaded to DOM");
 
 export default {};
