@@ -40,7 +40,9 @@ const startFunc = ({
 
     const isFormDisabled = options.vertical.isFormDisabled;
     const showSaveButton = options.vertical.showSaveButton;
-    // console.log("showSaveButton------------ : ", showSaveButton);
+    const verticalOptions = options.vertical;
+
+    console.log("verticalOptions------------ : ", verticalOptions);
 
     // debugger
 
@@ -64,7 +66,8 @@ const startFunc = ({
             inDataStore: dataStore,
             showSaveButton: showSaveButton,
             inDefaultRow: findDataFromParams,
-            inIsDisabled: isFormDisabled
+            inIsDisabled: isFormDisabled,
+            inVerticalOptions: verticalOptions
         });
 
         containerEl.prepend(searchForm);

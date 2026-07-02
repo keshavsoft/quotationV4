@@ -33,7 +33,8 @@
             }
         },
         "vertical": {
-            "showSaveButton": true
+            "showSaveButton": false,
+            "isEdit": true
         }
     },
     "callbacks": {
