@@ -3,16 +3,12 @@
 
 import { createState } from "./HtmlState/start.js";
 import { getDomManipulation } from "./DomManipulation/start.js";
-import { validateConfig } from "./Utils/validateConfig.js";
 import { prepareColumnsBundle } from "./Utils/prepareColumnsBundle.js";
 import { normalizeConfig } from "./Utils/normalizeConfig.js";
-import { focusToEl } from "./FocusSet/V2/focusSet.js";
 
 import { createStore } from "./TableStore/V3/start.js";
-import { applyMode } from "./Core/applyMode.js";
 import { KeshavUIClasses } from "./uiClasses.js";
 import { loadDataFlow } from "./Core/loadDataFlow.js";
-import { loadVerticalOnly } from "./Core/loadVerticalOnly.js";
 
 import { setupServices } from "./Services/setupServices.js";
 
