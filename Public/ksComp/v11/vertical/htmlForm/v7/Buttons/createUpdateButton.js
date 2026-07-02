@@ -1,4 +1,4 @@
-export const appendUpdateButton = ({ form, inServices, inConfig }) => {
+export const createUpdateButton = ({ inServices, inConfig }) => {
     const button = document.createElement("ks-button");
     button.init({ 
         text: "Update",
@@ -27,5 +27,5 @@ export const appendUpdateButton = ({ form, inServices, inConfig }) => {
         inConfig.callbacks.vertical.onSuccess(fromService);
     };
 
-    form.appendChild(button);
+    return button;
 };

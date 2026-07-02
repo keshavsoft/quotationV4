@@ -1,4 +1,4 @@
-export const appendCancelButton = ({ form, element }) => {
+export const createCancelButton = ({ element }) => {
     const button = document.createElement("ks-button");
     button.init({ text: "Cancel", class: "flex-1 px-4 py-1 bg-red-500 text-white rounded" });
 
@@ -9,5 +9,5 @@ export const appendCancelButton = ({ form, element }) => {
         element.render();
     };
 
-    form.appendChild(button);
+    return button;
 };

@@ -1,7 +1,7 @@
-import { appendSaveButton } from "./appendSaveButton.js";
-import { appendEditButton } from "./appendEditButton.js";
-import { appendCancelButton } from "./appendCancelButton.js";
-import { appendUpdateButton } from "./appendUpdateButton.js";
+import { createSaveButton } from "./createSaveButton.js";
+import { createEditButton } from "./createEditButton.js";
+import { createCancelButton } from "./createCancelButton.js";
+import { createUpdateButton } from "./createUpdateButton.js";
 
 export const appendButtons = ({ form, element, options = {}, inServices, inConfig }) => {
     const showSaveButton = options.showSaveButton || false;
@@ -16,16 +16,20 @@ export const appendButtons = ({ form, element, options = {}, inServices, inConfi
 
     if (isModeDefined) {
         if (isCreate) {
-            appendSaveButton({ form: buttonRow, inServices, inConfig });
+            const saveBtn = createSaveButton({ inServices, inConfig });
+            buttonRow.appendChild(saveBtn);
         } else if (isEdit) {
-            appendUpdateButton({ form: buttonRow, inServices, inConfig });
-            appendCancelButton({ form: buttonRow, element });
+            const updateBtn = createUpdateButton({ inServices, inConfig });
+            const cancelBtn = createCancelButton({ element });
+            buttonRow.append(updateBtn, cancelBtn);
         } else {
-            appendEditButton({ form: buttonRow, element });
+            const editBtn = createEditButton({ element });
+            buttonRow.appendChild(editBtn);
         }
         form.appendChild(buttonRow);
     } else if (showSaveButton) {
-        appendSaveButton({ form: buttonRow, inServices, inConfig });
+        const saveBtn = createSaveButton({ inServices, inConfig });
+        buttonRow.appendChild(saveBtn);
         form.appendChild(buttonRow);
     }
 };
