@@ -121,5 +121,14 @@
             "onKeyDownType": "Qty",
             "type": "date"
         }
-    ]
+    ],
+    "uiClasses": {
+        "form": {
+            "formClass": "grid grid-cols-2 gap-x-8 gap-y-4 p-6 verticalForm",
+            "buttonClass": "mt-2 px-4 py-1 bg-green-500 text-white",
+            "rowClass": "flex items-center space-x-4",
+            "labelClass": "w-24 text-sm font-medium",
+            "inputClass": "flex-1 border rounded px-3 py-2"
+        }
+    }
 }

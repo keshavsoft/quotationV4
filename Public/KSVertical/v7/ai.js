@@ -22,10 +22,9 @@ class KSAiVertical {
     constructor(inConfig) {
         let config = normalizeConfig(inConfig);
 
-
         const { containerId, options, endPoints, columnsConfig,
             uiClasses, callbacks } = config;
-        console.log("bbbbbbbbbbbbbbbbb : ", inConfig, uiClasses);
+        // console.log("bbbbbbbbbbbbbbbbb : ", inConfig, uiClasses);
 
         this.config = config;
         this.containerEl = document.getElementById(containerId);
