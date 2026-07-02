@@ -14,9 +14,9 @@ function loadScriptAsModuleCommon(src) {
 async function ensureKSComponents() {
     async function tryTable() {
         try {
-            const fromPromise = await loadScriptAsModuleCommon("https://keshavsoft.github.io/ks-web-comp-table/Public/v2.8/KSComponents.js");
+            const fromPromise = await loadScriptAsModuleCommon("https://keshavsoft.github.io/ks-web-comp-table/Public/v2.10/KSComponents.js");
 
-            console.log("KSComponents loaded from git : ks-web-comp-table-2.8");
+            console.log("KSComponents loaded from git : ks-web-comp-table-2.10");
 
             if (fromPromise) return true;
         } catch { return false };
@@ -81,8 +81,48 @@ async function ensureTailwind() {
 
     throw new Error("Tailwind could not be loaded");
 };
-
 async function ensureKSHeader() {
+    function isKSTableLoaded() {
+        return !!window.KSHeader;
+    };
+
+    async function tryGitHub() {
+        try {
+            const fromPromise = await loadScriptAsModuleCommon("https://keshavsoft.github.io/tailwind-header-dom/public/v13/ksheader.js");
+
+            console.log("KSHeader loaded from git : tailwind-header-dom-13");
+
+            if (fromPromise) return true;
+        } catch { return false };
+
+        return false;
+    };
+
+    async function tryLocal() {
+        try {
+            const fromPromise = await loadScriptAsModuleCommon("/header/v12/initHeader.js");
+
+            console.log("KSHeader loaded from local : header-v12");
+
+            if (fromPromise) return true;
+        } catch { return false };
+
+        return false;
+    };
+
+    if (isKSTableLoaded()) {
+        console.log("KSHeader loaded from Firefox Extension");
+        return;
+    };
+
+    if (await tryLocal()) return;
+
+    if (await tryGitHub()) return;
+
+    throw new Error("KSHeader could not be loaded");
+};
+
+async function ensureKSHeader1() {
     function isKSTableLoaded() {
         return !!window.KSHeader;
     };
@@ -116,7 +156,7 @@ async function ensureKSHeader() {
         return;
     };
 
-    // if (await tryLocal()) return;
+    if (await tryLocal()) return;
 
     if (await tryGitHub()) return;
 
