@@ -3,7 +3,9 @@ export const appendEditButton = ({ form, element }) => {
     button.init({ text: "Edit", class: "flex-1 px-4 py-1 bg-blue-500 text-white rounded" });
 
     button.onClick = () => {
-        element.options.isEdit = true;
+        if (element.options && element.options.inVerticalOptions) {
+            element.options.inVerticalOptions.isEdit = true;
+        }
         element.render();
     };
 

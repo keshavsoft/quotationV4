@@ -3,7 +3,9 @@ export const appendCancelButton = ({ form, element }) => {
     button.init({ text: "Cancel", class: "flex-1 px-4 py-1 bg-red-500 text-white rounded" });
 
     button.onClick = () => {
-        element.options.isEdit = false;
+        if (element.options && element.options.inVerticalOptions) {
+            element.options.inVerticalOptions.isEdit = false;
+        }
         element.render();
     };
 
