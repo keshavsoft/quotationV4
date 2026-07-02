@@ -37,5 +37,9 @@ if (!customElements.get("ks-html-form")) {
     customElements.define("ks-html-form", KsHtmlForm);
 }
 
+window.ks = window.ks || {};
+window.ks.components = window.ks.components || {};
+window.ks.components.htmlForm = KsHtmlForm;
+
 export default KsHtmlForm;
 export { KsHtmlForm, defaultOptions };
