@@ -1,4 +1,4 @@
-import { renderForm } from "./render.js";
+import renderForm from "./render/start.js";
 
 class KsHtmlForm extends HTMLElement {
     init(options) {

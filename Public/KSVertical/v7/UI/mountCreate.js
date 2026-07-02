@@ -51,7 +51,7 @@ const startFunc = ({
         inIsTableNeeded: false,
         inIsShowHeaderRow: false
     });
-    // console.log("uiClasses----------- : ", uiClasses);
+    console.log("uiClasses-----------11111111 : ", uiClasses);
 
     if (true) {
         const searchForm = createForm({
