@@ -1,4 +1,5 @@
 import { buildButton } from "../BuildButton/buildButton.js";
+import attachClickEvent from "./attachClickEvent.js";
 
 const renderButton = ({ element, options = {} }) => {
     const text = options.text || options.buttonText || options.inText || element.getAttribute("text") || element.getAttribute("button-text") || "Save";
@@ -11,17 +12,7 @@ const renderButton = ({ element, options = {} }) => {
         inClass: className
     });
 
-    button.addEventListener("click", event => {
-        event.preventDefault();
-
-        const form = element.closest("form");
-        const data = form ? Object.fromEntries(
-            [...form.querySelectorAll("input")]
-                .map(input => [input.name, input.value])
-        ) : {};
-
-        element.onClick?.(data);
-    });
+    attachClickEvent({ button, element });
 
     element.appendChild(button);
 };
