@@ -1,10 +1,9 @@
 // createForm.js
 
-import { KSHtmlForm } from "./KSHtmlForm.js";
-
 const createForm = (options) => {
-    const formInstance = new KSHtmlForm(options);
-    return formInstance.build();
+    const form = document.createElement("ks-html-form");
+    form.init(options);
+    return form;
 };
 
 export default createForm;
