@@ -224,18 +224,53 @@ async function ensureKSTableComp() {
     throw new Error("KSTableComp could not be loaded");
 };
 
+async function ensureKSVertical() {
+    function isKSVerticalLoaded() {
+        return !!window.KSVertical;
+    };
+
+    async function tryGitHub() {
+        try {
+            const fromPromise = await loadScriptAsModuleCommon("https://keshavsoft.github.io/tailwind-vertical-dom/Public/v6/ksvertical.js");
+
+            console.log("KSVertical loaded from git : tailwind-vertical-dom-v6");
+
+            if (fromPromise) return true;
+        } catch { return false };
+
+        return false;
+    };
+
+    async function tryLocal() {
+        try {
+            const fromPromise = await loadScriptAsModuleCommon("/KSVertical/v7/entry.js");
+
+            console.log("KSVertical loaded from Local Server : KSVertical/v7");
+
+            if (fromPromise) return true;
+        } catch { return false };
+
+        return false;
+    };
+
+    if (isKSVerticalLoaded()) {
+        console.log("KSVertical loaded from Firefox Extension");
+        return;
+    };
+
+    if (await tryLocal()) return;
+
+    if (await tryGitHub()) return;
+
+    throw new Error("KSVertical could not be loaded");
+};
+
 ensureTailwind().then();
+ensureKSVertical().then();
 
-// await ensureTailwind();
-
-await ensureKSComponents();
-
-// ensureKSComponents().then(fromPromise => {
-//     // ensureKSHeader().then();
-
-//     // ensureKSTableComp().then();
-// });
+// await ensureKSComponents();
 
 await ensureKSHeader();
 
 await ensureKSTableComp();
+

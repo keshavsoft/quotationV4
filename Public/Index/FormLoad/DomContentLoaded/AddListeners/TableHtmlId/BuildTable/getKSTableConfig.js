@@ -1,6 +1,7 @@
 import onReadFail from "../../../CommonFuncs/onReadFail.js";
 
-export const getKSTableConfig = async () => {
+export const getKSTableConfig1 = async () => {
+    console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 
     const config = await fetch("./Index/Configs/Table/config.json");
     // debugger;
@@ -8,20 +9,49 @@ export const getKSTableConfig = async () => {
 
     const last = await fetch("/api/v2/ItemsTable/lastRecord");
     // debugger;
-    
+
     let lastJson = { ParentPk: 0 };
     if (last.ok) {
         const text = await last.text();
         if (text) {
             lastJson = JSON.parse(text);
         }
-    }
+    };
 
     const pk = (lastJson.ParentPk || 0) + 1;
 
-    // const pk = prompt("Enter PK");
+    configJson.callbacks.table.onReadFail = onReadFail;
 
-    // if (pk === null || pk.trim() === "") return;
+    const findColumn = configJson.columnsConfig.find(element => {
+        return element.field === "ParentPk"
+    });
+
+    findColumn.defaultValue = parseInt(pk);
+
+    configJson.endPoints.read = configJson.endPoints.read.replace("<ParentPk>", pk);
+
+    return configJson;
+};
+
+export const getKSTableConfig = async () => {
+    console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
+
+    const config = await fetch("./Index/Configs/Table/config.json");
+    // debugger;
+    const configJson = await config.json();
+
+    const last = await fetch("/api/v2/ItemsTable/lastRecord");
+    // debugger;
+
+    let lastJson = { ParentPk: 0 };
+    if (last.ok) {
+        const text = await last.text();
+        if (text) {
+            lastJson = JSON.parse(text);
+        }
+    };
+
+    const pk = (lastJson.ParentPk || 0) + 1;
 
     configJson.callbacks.table.onReadFail = onReadFail;
 
