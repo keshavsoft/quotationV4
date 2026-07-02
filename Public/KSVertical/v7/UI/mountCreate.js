@@ -62,7 +62,7 @@ const startFunc = ({
             inServices: services,
             inConfig,
             inShowButton: false,
-            uiClasses: uiClasses.form,
+            // uiClasses: uiClasses.form,
             inDataStore: dataStore,
             showSaveButton: showSaveButton,
             inDefaultRow: findDataFromParams,

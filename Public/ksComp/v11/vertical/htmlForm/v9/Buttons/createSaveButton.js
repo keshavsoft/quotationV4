@@ -1,8 +1,10 @@
-export const createSaveButton = ({ inServices, inConfig }) => {
+import defaultOptions from "../defaultOptions.js";
+
+export const createSaveButton = ({ options = {}, inServices, inConfig }) => {
     const button = document.createElement("ks-button");
     button.init({ 
-        text: "Save",
-        class: "flex-1 px-4 py-1 bg-green-500 text-white rounded"
+        text: options.saveButtonText || "Save",
+        class: options.saveButtonClass || options.uiClasses?.saveButtonClass || options.uiClasses?.buttonRow?.buttons?.save || options.uiClasses?.form?.buttonRow?.buttons?.save || defaultOptions.uiClasses.form.buttonRow.buttons.save
     });
 
     button.onClick = async (data) => {

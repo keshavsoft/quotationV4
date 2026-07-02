@@ -1,8 +1,10 @@
-export const createUpdateButton = ({ inServices, inConfig }) => {
+import defaultOptions from "../defaultOptions.js";
+
+export const createUpdateButton = ({ options = {}, inServices, inConfig }) => {
     const button = document.createElement("ks-button");
     button.init({ 
-        text: "Update",
-        class: "flex-1 px-4 py-1 bg-green-500 text-white rounded"
+        text: options.updateButtonText || "Update",
+        class: options.updateButtonClass || options.uiClasses?.updateButtonClass || options.uiClasses?.buttonRow?.buttons?.update || options.uiClasses?.form?.buttonRow?.buttons?.update || defaultOptions.uiClasses.form.buttonRow.buttons.update
     });
 
     button.onClick = async (data) => {

@@ -1,6 +1,11 @@
-export const createCancelButton = ({ element }) => {
+import defaultOptions from "../defaultOptions.js";
+
+export const createCancelButton = ({ options = {}, element }) => {
     const button = document.createElement("ks-button");
-    button.init({ text: "Cancel", class: "flex-1 px-4 py-1 bg-red-500 text-white rounded" });
+    button.init({ 
+        text: options.cancelButtonText || "Cancel", 
+        class: options.cancelButtonClass || options.uiClasses?.cancelButtonClass || options.uiClasses?.buttonRow?.buttons?.cancel || options.uiClasses?.form?.buttonRow?.buttons?.cancel || defaultOptions.uiClasses.form.buttonRow.buttons.cancel
+    });
 
     button.onClick = () => {
         if (element.options && element.options.inVerticalOptions) {

@@ -1,7 +1,10 @@
-const createFieldset = ({ uiClasses = {}, inIsDisabled }) => {
+import defaultOptions from "../defaultOptions.js";
+
+const createFieldset = ({ uiClasses = {}, inIsDisabled, defaultFieldsetClass }) => {
     const fieldset = document.createElement("fieldset");
 
-    fieldset.className = uiClasses.fieldsetClass || 'grid grid-cols-3 gap-x-8 gap-y-4 p-6 verticalForm';
+    const baseClass = uiClasses.fieldsetClass || uiClasses.formClass || uiClasses.fieldset?.class || uiClasses.form?.fieldset?.class || defaultFieldsetClass || defaultOptions.uiClasses.form.fieldset.class;
+    fieldset.className = `${baseClass} flex-grow`;
     fieldset.disabled = inIsDisabled;
 
     return fieldset;

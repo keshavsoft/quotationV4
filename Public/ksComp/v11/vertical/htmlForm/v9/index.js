@@ -1,6 +1,13 @@
 import renderForm from "./render/start.js";
+import defaultOptions from "./defaultOptions.js";
 
 class KsHtmlForm extends HTMLElement {
+    static defaults = defaultOptions;
+
+    get defaults() {
+        return this.constructor.defaults;
+    }
+
     init(options) {
         this.options = options;
         this.render();
@@ -31,4 +38,4 @@ if (!customElements.get("ks-html-form")) {
 }
 
 export default KsHtmlForm;
-export { KsHtmlForm };
+export { KsHtmlForm, defaultOptions };

@@ -1,9 +1,12 @@
+import defaultOptions from "../defaultOptions.js";
 import { createSaveButton } from "./createSaveButton.js";
 import { createEditButton } from "./createEditButton.js";
 import { createCancelButton } from "./createCancelButton.js";
 import { createUpdateButton } from "./createUpdateButton.js";
 
 export const appendButtons = ({ form, element, options = {}, inServices, inConfig }) => {
+    console.log("options ----------: ", options);
+
     const showSaveButton = options.showSaveButton || false;
     const isEdit = options?.inVerticalOptions?.isEdit || false;
     const isCreate = options?.inVerticalOptions?.isCreate || false;
@@ -12,23 +15,23 @@ export const appendButtons = ({ form, element, options = {}, inServices, inConfi
     if (!isModeDefined && !showSaveButton) return;
 
     const buttonRow = document.createElement("div");
-    buttonRow.className = "flex gap-2 w-full mt-2";
+    buttonRow.className = options.uiClasses?.buttonRowClass || options.uiClasses?.buttonRow?.class || options.uiClasses?.form?.buttonRow?.class || defaultOptions.uiClasses.form.buttonRow.class;
 
     if (isModeDefined) {
         if (isCreate) {
-            const saveBtn = createSaveButton({ inServices, inConfig });
+            const saveBtn = createSaveButton({ options, inServices, inConfig });
             buttonRow.appendChild(saveBtn);
         } else if (isEdit) {
-            const updateBtn = createUpdateButton({ inServices, inConfig });
-            const cancelBtn = createCancelButton({ element });
+            const updateBtn = createUpdateButton({ options, inServices, inConfig });
+            const cancelBtn = createCancelButton({ options, element });
             buttonRow.append(updateBtn, cancelBtn);
         } else {
-            const editBtn = createEditButton({ element });
+            const editBtn = createEditButton({ options, element });
             buttonRow.appendChild(editBtn);
         }
         form.appendChild(buttonRow);
     } else if (showSaveButton) {
-        const saveBtn = createSaveButton({ inServices, inConfig });
+        const saveBtn = createSaveButton({ options, inServices, inConfig });
         buttonRow.appendChild(saveBtn);
         form.appendChild(buttonRow);
     }
