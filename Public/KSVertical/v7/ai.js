@@ -7,7 +7,7 @@ import { prepareColumnsBundle } from "./Utils/prepareColumnsBundle.js";
 import { normalizeConfig } from "./Utils/normalizeConfig.js";
 
 import { createStore } from "./TableStore/V3/start.js";
-import { KeshavUIClasses } from "./uiClasses.js";
+import KeshavUIClasses from "./uiClasses.js";
 import { loadDataFlow } from "./Core/loadDataFlow.js";
 
 import { setupServices } from "./Services/setupServices.js";
@@ -15,6 +15,10 @@ import { setupServices } from "./Services/setupServices.js";
 import mountCreate from "./UI/mountCreate.js";
 
 class KSAiVertical {
+    static defaults = {
+        classes: KeshavUIClasses
+    };
+
     constructor(inConfig) {
         let config = normalizeConfig(inConfig);
 
@@ -35,7 +39,7 @@ class KSAiVertical {
         this.dom = getDomManipulation();
 
         this.uiState.setTableContainerId(containerId);
-        this.uiClasses = this.mergeUI(KeshavUIClasses, uiClasses);
+        this.uiClasses = this.mergeUI(KSAiVertical.defaults.classes, uiClasses);
 
         const bundle = prepareColumnsBundle(columnsConfig);
 
@@ -99,5 +103,7 @@ class KSAiVertical {
 };
 
 window.KSAiVertical = KSAiVertical;
+
+window.KSAiVertical.defaults = KSAiVertical.defaults;
 
 export default KSAiVertical;

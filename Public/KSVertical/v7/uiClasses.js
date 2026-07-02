@@ -28,4 +28,4 @@ const KeshavUIClasses = {
     }
 };
 
-export { KeshavUIClasses };
+export default KeshavUIClasses;

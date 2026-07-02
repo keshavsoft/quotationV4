@@ -7,10 +7,10 @@ const initCreate = async (cfg) => {
     return table;
 };
 
-window.KSVertical = {};
+window.KSVertical = window.KSVertical || {};
 window.KSVertical.initCreate = initCreate;
 
 export { initCreate };
 
-// v2.3
+// KSVertical 7
 
