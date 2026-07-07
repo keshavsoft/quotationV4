@@ -1,5 +1,5 @@
 {
-    "containerId": "kSHeadContainer",
+    "containerId": "kSTableContainer",
     "tableName": "Quotations",
     "mode": "create",
     "layout": {
@@ -115,7 +115,8 @@
                     "rowClass": "flex items-center space-x-4 w-1/2"
                 }
             },
-            "isConsider": true,
+            "isConsider": false,
+            "isVisible": false,
             "tableConfig": {
                 "footerConfig": {
                     "enterAsTab": false,

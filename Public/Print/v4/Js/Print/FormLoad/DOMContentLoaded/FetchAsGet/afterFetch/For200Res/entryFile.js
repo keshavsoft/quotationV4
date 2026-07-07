@@ -1,5 +1,5 @@
 let StartFunc = ({ inResponseAsJson }) => {
-    console.log("inResponseAsJson : ", inResponseAsJson);
+    // console.log("inResponseAsJson : ", inResponseAsJson);
 
     inResponseAsJson.forEach(LocalFuncForTemplate);
 
@@ -8,7 +8,7 @@ let StartFunc = ({ inResponseAsJson }) => {
     });
 
     const sum = LocalFuncForTotalStart({ inResponseAsJson });
-    console.log("sum : ", sum);
+    // console.log("sum : ", sum);
 
     const jVarLocalTaxableValue = sum * 100 / 118;
     const jVarLocalTaxString = `(CGST ₹${((sum - jVarLocalTaxableValue) / 2).toFixed(2)} + SGST ₹${((sum - jVarLocalTaxableValue) / 2).toFixed(2)})`;

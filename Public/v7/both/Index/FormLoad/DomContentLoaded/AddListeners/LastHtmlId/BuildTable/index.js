@@ -10,7 +10,7 @@ let jFLocalToInputhtmlId = (inValue) => {
 };
 
 const itemsTableConfig = async (inPk) => {
-    const config = await fetch("./Index/Configs/find/itemsConfig.json");
+    const config = await fetch("./Index/Configs/last/itemsConfig.json");
     // debugger;
     const configJson = await config.json();
     // debugger;

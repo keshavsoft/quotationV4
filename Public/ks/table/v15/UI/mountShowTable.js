@@ -21,11 +21,13 @@ const startFunc = ({
     inConfig
 }) => {
     // debugger
-    // console.log("callbacks------------- ", callbacks);
 
     const visibleColumns = dataStore.getVisibleColumns();
     const visibleColumnsConfig = dataStore.getVisibleColumnsConfig();
     const searchableColumnsConfig = dataStore.getSearchableColumnsConfig();
+
+    // console.log("visibleColumnsConfig------------- ", visibleColumnsConfig);
+
 
     const data = dataStore.getData();
     const showSerial = options.table.showSerial;
