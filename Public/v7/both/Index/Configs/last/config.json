@@ -62,7 +62,7 @@
         "read2": "/api/V5/BillsTable/ShowAll",
         "read1": "/api/V1/ItemsTable/ShowAll",
         "findFromParams1": "/api/v5/BillsTable/find/<pk>",
-        "findFromParams": "/api/v6/ItemsTable/lastRecord",
+        "findFromParams": "/api/v6/BillsTable/lastRecord",
         "filter": "",
         "dataLists": {},
         "dataListEndpoints": {}
