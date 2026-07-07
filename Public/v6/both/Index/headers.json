@@ -60,17 +60,6 @@
             "svgName": "search"
         },
         {
-            "text": "Dashboard",
-            "id": "PrintHtmlId",
-            "icon": [],
-            "uiClasses": {
-                "aClass": "",
-                "svgDivClass": "size-10"
-            },
-            "svgName": "home",
-            "href": "./showAll/index.html"
-        },
-        {
             "text": "split",
             "id": "splitHtmlId",
             "icon": [],
@@ -90,7 +79,7 @@
                 "svgDivClass": "size-10"
             },
             "svgName": "printer",
-            "href": "javascript:window.print()"
+            "href1": "javascript:window.print()"
         }
     ]
 }

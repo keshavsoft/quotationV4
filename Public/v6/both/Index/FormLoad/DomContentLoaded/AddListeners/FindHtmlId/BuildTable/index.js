@@ -1,7 +1,16 @@
 // import { getKSTableConfig } from "./getKSTableConfig.js";
 
+let jFLocalToInputhtmlId = (inValue) => {
+    let jVarLocalHtmlId = 'htmlId';
+    let jVarLocalhtmlId = document.getElementById(jVarLocalHtmlId);
+
+    if (jVarLocalhtmlId === null === false) {
+        jVarLocalhtmlId.innerHTML = inValue;
+    };
+};
+
 const itemsTableConfig = async (inPk) => {
-    const config = await fetch("./Index/Configs/vertical/itemsConfig.json");
+    const config = await fetch("./Index/Configs/find/itemsConfig.json");
     // debugger;
     const configJson = await config.json();
     // debugger;
@@ -33,6 +42,8 @@ const startFunc = async () => {
     const pk = prompt("Enter PK");
 
     if (pk === null || pk.trim() === "") return;
+
+    jFLocalToInputhtmlId(pk);
 
     const config = await getVerticalConfig(pk);
 

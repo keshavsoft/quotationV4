@@ -1,12 +1,9 @@
 import getUrlJson from './getUrl.json' with {type: 'json'};
 
 let StartFunc = async () => {
-    // GET http://localhost:9008/V6/BillsTable/Filter/RowFilter/{inKey}/{inValue}
-    // let jVarLocalFilterString = getUrlQueryParams({ inGetKey: "pk" });
+    const ParentPk = getUrlQueryParams({ inGetKey: "pk" });
 
-    // let jVarLocalCommonTable = CommonConfigJson.StartUrl;
-    // let jVarLocalGetEndPoint = getUrlJson.GetEndPoint.replace("{inValue}", jVarLocalFilterString);
-    // let jVarLocalFetchUrl = `${jVarLocalCommonTable}/BillItemsTable/${jVarLocalGetEndPoint}`
+    getUrlJson.GetEndPoint = getUrlJson.GetEndPoint.replace("<ParentPk=>", `ParentPk=${ParentPk}`);
 
     let response = await fetch(getUrlJson.GetEndPoint);
 
@@ -20,6 +17,4 @@ let getUrlQueryParams = ({ inGetKey }) => {
     return value;
 };
 
-
 export { StartFunc };
-

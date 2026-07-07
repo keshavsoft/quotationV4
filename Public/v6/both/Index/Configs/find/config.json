@@ -37,7 +37,7 @@
             "isEdit": false,
             "layoutType1": "inputsStacked",
             "layoutType": "singleLine",
-            "showButtons": true
+            "showButtons": false
         }
     },
     "callbacks": {
@@ -138,7 +138,7 @@
                     "rowClass": "flex items-center space-x-4 w-1/2"
                 }
             },
-            "isConsider": true,
+            "isConsider": false,
             "tableConfig": {
                 "footerConfig": {
                     "enterAsTab": false,
