@@ -27,28 +27,24 @@ const itemsTableConfig = async (inPk) => {
     return configJson;
 };
 
-const getVerticalConfig = async (inPk) => {
-    const pk = inPk;
-    const config = await fetch("./Index/Configs/find/config.json");
+const getVerticalConfig = async () => {
+    const config = await fetch("./Index/Configs/last/config.json");
     // debugger;
     const configJson = await config.json();
-
-    configJson.endPoints.findFromParams = configJson.endPoints.findFromParams.replace("<pk>", pk);
 
     return configJson;
 };
 
 const startFunc = async () => {
-    const pk = prompt("Enter PK");
-
-    if (pk === null || pk.trim() === "") return;
-
-    jFLocalToInputhtmlId(pk);
-
-    const config = await getVerticalConfig(pk);
+    const config = await getVerticalConfig();
 
     ksVertical = new window.ks.classes.vertical(config);
-    ksVertical.initCreate();
+    await ksVertical.initCreate();
+    // debugger
+    const verticalData = ksVertical.dataStore.getFindFromParams();
+    const pk = verticalData.pk;
+
+    jFLocalToInputhtmlId(pk);
 
     const itemsConfig = await itemsTableConfig(pk);
 
